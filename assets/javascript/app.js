@@ -47,7 +47,7 @@ $("button").on("click", function(event){
         //console.log(images);
         //Change this to vanilla js
         var topicImage = $("<img>");
-        topicImage.attr = ("src", imageURL);
+        topicImage.attr("src", imageURL);//add alt
         console.log(topicImage);
         $("#display").append(topicImage);
         // $(images).attr("src", response.data[i].images.fixed_width_still.url);
