@@ -1,0 +1,25 @@
+body {
+    background-image: url("../../assets/images/star-trek-space-background.png");
+    background-size: cover;
+    font-family: krupper;
+    color: #ffffff;
+}
+
+.jumbotron {
+    background: none;
+    color: #ffffff;
+    font-family: federation;
+}
+
+.card {
+    background: none;
+    border: none;
+}
+
+.giphy{
+    margin-right: 10px;
+    background-color: #375475;
+    color: #ffffff;
+    border: none;
+    padding: 10px 10px 10px 10px;
+}

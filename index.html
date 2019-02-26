@@ -1,33 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!--Typography-->
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!--jQuery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
     <title>Giftastic</title>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Giftastic Fun</h1>    
-
-        <!--Movie button section-->
-       <div id="gifButton">
-
-        
-       </div>
-
-        <!--Search form section with submit button-->
-    <form id="search">
-        <label for="gifInput">Add your Gif</label>
-        <input id="gifInput" type="text">
-        <input id="addGif" type="submit" value="Add Gift Topic">
-    </form>
+    <!--Heading Title-->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Star Trek Giftastic Fun</h1>
+            <form id="search">
+                <div class="form-group">
+                    <!-- <label for="gifInput">Add your Gif</label><br> -->
+                    <input id="gifInput" type="text" placeholder="Add Gif">
+                    <input id="addGif" type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
     </div>
+    <!--Movie button section-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-12" id="buttonSize">
+                                    <div id="gifButton"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div id="display">
 
     </div>
     <script src="assets/javascript/app.js"></script>
 </body>
+
 </html>
