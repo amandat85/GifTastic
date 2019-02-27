@@ -3,13 +3,19 @@
     padding: none; 
  }
 
+ @font-face {
+     font-family: "Federation";
+     src: url("../../assets/Fonts/TNG_Title.ttf");
+     font-family: "Final Frontier";
+     src: url("../../assets/Fonts/Finalnew.ttf");
+ }
 
 body {
     background-image: url("../../assets/images/captain.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: final frontier;
+    font-family: "final frontier";
     font-size: 12pt;
     color: #ffffff;
 }
@@ -22,15 +28,9 @@ body {
 h1 {
     font-size: 45pt;
     color: #ffffff;
-    font-family: federation;
+    font-family: "Federation";
 }
 
-
-/* #gifButton {
-    clear: both;
-    margin: auto;
-    margin-top: 8%;
-} */
 .giphy {
     background-color: #BD9A63;
     font-size: 16pt;
@@ -45,4 +45,9 @@ h1 {
 .individualGif {
     float: left;
     margin-right: 2%;
+}
+
+#footercolor{
+    
+    background-color: #000000;
 }

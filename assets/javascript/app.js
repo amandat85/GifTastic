@@ -41,7 +41,7 @@ $(document).ready(function () { //change to JS
                 var imageURL = ("data-still", response.data[i].images.fixed_height_still.url);
                 topicImage.src = imageURL;
                 topicImage.setAttribute("data-state", "still");
-                var imageURLAnimate = ("data-animate", response.data[i].images.fixed_height.url);
+                var imageURLAnimate = ("data-animate", response.data[i].images.fixed_height.url); //append attribute data-state=animate?
                 imageDiv.appendChild(ratingsID);
                 imageDiv.appendChild(topicImage);
                 document.querySelector("#display").prepend(imageDiv);
