@@ -1,6 +1,9 @@
 body {
     background-image: url("../../assets/images/star-trek-space-background.png");
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     font-family: krupper;
     color: #ffffff;
 }
@@ -16,7 +19,7 @@ body {
     border: none;
 }
 
-.giphy{
+.giphy {
     margin-right: 10px;
     background-color: #375475;
     color: #ffffff;
