@@ -4,11 +4,15 @@
  }
 
  @font-face {
-     font-family: "Federation TNG Title";
+     font-family: "Federation";
      src: url("../../assets/Fonts/federation.ttf");
-     font-family: "Final Frontier";
-     src: url("../../assets/Fonts/Finalnew.ttf");
  }
+
+@font-face {
+    font-family: "Final Frontier";
+    src: url("../../assets/Fonts/Finalnew.ttf");
+  }   
+
 
 body {
     background-image: url("../../assets/images/captain.png");
