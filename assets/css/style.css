@@ -1,38 +1,48 @@
+* {
+    margin: none;
+    padding: none; 
+ }
+
+
 body {
-    background-image: url("../../assets/images/star-trek-space-background.png");
+    background-image: url("../../assets/images/captain.png");
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     font-family: final frontier;
-    font-size: 16pt;
+    font-size: 12pt;
     color: #ffffff;
 }
 
-form {
-    font-family: final frontier;  
-    font-size: 16pt;
-}
 
 .jumbotron {
-    /* font-size: 90pt; */
     background: none;
+}
+
+h1 {
+    font-size: 45pt;
     color: #ffffff;
     font-family: federation;
 }
 
-.card {
-    background: none;
-    border: none;
-}
 
+/* #gifButton {
+    clear: both;
+    margin: auto;
+    margin-top: 8%;
+} */
 .giphy {
-    margin-right: 10px;
-    background-color: #375475;
-    color: #ffffff;
+    background-color: #BD9A63;
     font-size: 16pt;
     border-style: solid;
-    border-color: #ffffff;
     padding: 10px 20px 10px 20px;
     border-radius: 10%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    font-size: 14pt;
+}
+
+.individualGif {
+    float: left;
+    margin-right: 2%;
 }
