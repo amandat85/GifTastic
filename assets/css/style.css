@@ -4,11 +4,18 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: krupper;
+    font-family: final frontier;
+    font-size: 16pt;
     color: #ffffff;
 }
 
+form {
+    font-family: final frontier;  
+    font-size: 16pt;
+}
+
 .jumbotron {
+    /* font-size: 90pt; */
     background: none;
     color: #ffffff;
     font-family: federation;
@@ -23,6 +30,9 @@ body {
     margin-right: 10px;
     background-color: #375475;
     color: #ffffff;
-    border: none;
-    padding: 10px 10px 10px 10px;
+    font-size: 16pt;
+    border-style: solid;
+    border-color: #ffffff;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10%;
 }

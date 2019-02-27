@@ -41,40 +41,47 @@ $(document).ready(function () { //change to JS
                 var ratingsID = document.createElement("p");
                 var ratings = response.data[i].rating.toUpperCase();
                 ratingsID.innerHTML = ("RATINGS: " + ratings);
-                var imageURL = ("data-still", response.data[i].images.fixed_height_still.url);
-                var imageURLA = ("data-animate", response.data[i].images.fixed_height.url);
-                console.log(imageURLA);
+
                 var topicImage = document.createElement("img");
-                topicImage.src = imageURL;
                 topicImage.setAttribute("class", "gif");
+                var imageURL = ("data-still", response.data[i].images.fixed_height_still.url); 
+                topicImage.src = imageURL;
                 topicImage.setAttribute("data-state", "still");
-                //console.log(topicImage);
-                document.querySelector("#display").appendChild(imageDiv);
-                document.querySelector(".individualGif").appendChild(ratingsID);
-                document.querySelector(".individualGif").appendChild(topicImage);//having issues with prepend //change so there are two beside each other.
+                
+                var imageURLAnimate = ("data-animate", response.data[i].images.fixed_height.url);
+                // console.log(imageURLA);
+        
+                // "data-animate", response.data[i].images.fixed_height.url);
+
+                imageDiv.appendChild(ratingsID);
+                imageDiv.appendChild(topicImage);
+                document.querySelector("#display").prepend(imageDiv);
             };
-        });
-    };
-    //ADD ON CLICK FUNCTION=================================================================================
-   // document.addEventListener("click", ".giphy", getGiphy);
-   $(document).on("click", ".giphy", getGiphy);
-    //STILL AND ANIMATE======================================================================================
-    //console.log(this);
-    //change to js
-    $("body").on("click", function(event){
+             //change to js
+    $(".gif").on("click", function(event){
         console.log(event);
-        var state = $(this).attr("data-state");
-        var stillImage = $(this).attr("data-still");
-        var movingImage = $(this).attr("data-animate");
-        if (state === stillImage) {
+        if ($(event.target).attr("data-state") === "still"){
             console.log("yes");
-        };
+            topicImage.src = imageURLAnimate;
+            topicImage.setAttribute("data-state", "animate");
+          
+        } 
+        });
+
+         //STILL AND ANIMATE======================================================================================
+    //console.log(this);
+   
+          
+
+    
         // else {
         //     $(this).attr("src", stillImage);
         //     $(this).attr("data-state", "still");
         // }
     });
-
-    //on click then we need to change to animate
-
+    };
+    //ADD ON CLICK FUNCTION=================================================================================
+   // document.addEventListener("click", ".giphy", getGiphy);
+   $(document).on("click", ".giphy", getGiphy);
+  
 });
