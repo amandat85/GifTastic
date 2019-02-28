@@ -1,20 +1,8 @@
 $(document).ready(function () { //change to JS
     //VARIABLES======================================================================================================================
     var topics = ["Captain Picard", "William Riker", "Worf", "Data", "Deanna Troi", "Beverly Crusher", "Geordi La Forge"];
-    // var audio = ("assets/audio/The Next Generation  theme.mp3");
-    // var theme = false;
-  
-	// $("#play").on("click", function() {
-	// 	if(theme === false){
-    //         console.log("yes")
-    //     	audio.play();
-    //     	theme = true;
-   	// 	}else {
-    //     	audio.pause();
-    //     	theme = false;
-    // 	}
-	// });
-    
+    var audio = document.createElement("audio");
+    audio.setAttribute("src", "assets/audio/TheNextGenerationTheme.mp3");
     //MAKE BUTTONS=================================================================================================================
     function makeButtons() {
         document.querySelector("#gifButton").innerHTML = "";
@@ -49,10 +37,14 @@ $(document).ready(function () { //change to JS
                 imageDiv.setAttribute("class", "individualGif");
                 var topicImage = document.createElement("img");
                 topicImage.setAttribute("class", "gif");
-                var imageURL = ("data-still", response.data[i].images.fixed_height_still.url);
-                topicImage.src = imageURL;
-                topicImage.setAttribute("data-state", "still");
-                var imageURLAnimate = ("data-animate", response.data[i].images.fixed_height.url); //append attribute data-state=animate?
+                //Set both still and animated to same variable?
+               // var imageURL = ("data-still", response.data[i].images.fixed_height_still.url);
+                topicImage.src = response.data[i].images.fixed_height_still.url;
+                topicImage.setAttribute("data-still", response.data[i].images.fixed_height_still.url);
+                topicImage.setAttribute("data-animate", response.data[i].images.fixed_height.url);
+
+
+               //var imageURLAnimate = ("data-animate", response.data[i].images.fixed_height.url); //append attribute data-state=animate?
                 var ratingsID = document.createElement("p");
                 var ratings = response.data[i].rating.toUpperCase();
                 ratingsID.innerHTML = ("RATING: " + ratings);
@@ -63,21 +55,33 @@ $(document).ready(function () { //change to JS
             };
             //change to js
             $(".gif").on("click", function (event) {
-                var  state = $(this).attr("data-state");
-                
-                console.log(event);
-                //use getattribute??
-                //assign to a specific gif with id?
-                if (state === "still") {
-                    topicImage.src = imageURLAnimate;
-                    topicImage.setAttribute("data-state", "animate");
+                console.log(this);
+                if ($(this).attr("src") === $(this).attr("data-still")){
+                    
+                    // $(this).src() = $(this).attr("data-animate")
+                    $(this).attr("src", $(this).attr("data-animate"));
                 }
                 else {
-                    topicImage.src = imageURL;
-                    topicImage.setAttribute("data-state", "still")
+                    $(this).attr("src", $(this).attr("data-still"));
                 }
 
-                console.log(state);
+                //var state = this.dataset.state;
+
+                // var  state = $(this).attr("data-state");
+                
+                // console.log(event);
+                // //use getattribute??
+                // //assign to a specific gif with id?
+                // if (state === "still") {
+                //     topicImage.src = imageURLAnimate;
+                //     topicImage.setAttribute("data-state", "animate");
+                // }
+                // else {
+                //     topicImage.src = imageURL;
+                //     topicImage.setAttribute("data-state", "still")
+                // }
+
+                // console.log(state);
             
             });
         });
@@ -85,4 +89,16 @@ $(document).ready(function () { //change to JS
     //ADD ON CLICK FUNCTION=================================================================================
     // document.addEventListener("click", ".giphy", getGiphy);
     $(document).on("click", ".giphy", getGiphy);
+    $("#play").on("click", function(){
+        audio.play();
+    });
+
+    $("#pause").on("click", function(){
+        audio.pause();
+    });
+
+
+
+
+
 });
