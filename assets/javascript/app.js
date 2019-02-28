@@ -1,6 +1,20 @@
 $(document).ready(function () { //change to JS
     //VARIABLES======================================================================================================================
     var topics = ["Captain Picard", "William Riker", "Worf", "Data", "Deanna Troi", "Beverly Crusher", "Geordi La Forge"];
+    // var audio = ("assets/audio/The Next Generation  theme.mp3");
+    // var theme = false;
+  
+	// $("#play").on("click", function() {
+	// 	if(theme === false){
+    //         console.log("yes")
+    //     	audio.play();
+    //     	theme = true;
+   	// 	}else {
+    //     	audio.pause();
+    //     	theme = false;
+    // 	}
+	// });
+    
     //MAKE BUTTONS=================================================================================================================
     function makeButtons() {
         document.querySelector("#gifButton").innerHTML = "";
@@ -33,17 +47,17 @@ $(document).ready(function () { //change to JS
             for (var i = 0; i < response.data.length; i++) {
                 var imageDiv = document.createElement("div");
                 imageDiv.setAttribute("class", "individualGif");
-                var ratingsID = document.createElement("p");
-                var ratings = response.data[i].rating.toUpperCase();
-                ratingsID.innerHTML = ("RATING: " + ratings);
                 var topicImage = document.createElement("img");
                 topicImage.setAttribute("class", "gif");
                 var imageURL = ("data-still", response.data[i].images.fixed_height_still.url);
                 topicImage.src = imageURL;
                 topicImage.setAttribute("data-state", "still");
                 var imageURLAnimate = ("data-animate", response.data[i].images.fixed_height.url); //append attribute data-state=animate?
-                imageDiv.appendChild(ratingsID);
+                var ratingsID = document.createElement("p");
+                var ratings = response.data[i].rating.toUpperCase();
+                ratingsID.innerHTML = ("RATING: " + ratings);
                 imageDiv.appendChild(topicImage);
+                imageDiv.appendChild(ratingsID);
                 document.querySelector("#display").prepend(imageDiv);
              
             };
@@ -53,9 +67,8 @@ $(document).ready(function () { //change to JS
                 
                 console.log(event);
                 //use getattribute??
-                //assign to a specific gif?
+                //assign to a specific gif with id?
                 if (state === "still") {
-                    console.log("yes");
                     topicImage.src = imageURLAnimate;
                     topicImage.setAttribute("data-state", "animate");
                 }
