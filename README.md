@@ -21,4 +21,4 @@ https://amandat85.github.io/GifTastic/
 * Add your own character by entering it into the search box.
 
 ## Animated Gif
-![Giftastic Demo](giftastic.gif)
+![GifTastic Demo](giftastic.gif)

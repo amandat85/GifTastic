@@ -1,4 +1,4 @@
-$(document).ready(function () { //change to JS
+$(document).ready(function () { 
     //VARIABLES======================================================================================================================
     var topics = ["Captain Picard", "William Riker", "Worf", "Data", "Deanna Troi", "Beverly Crusher", "Geordi La Forge"];
     var audio = document.createElement("audio");
@@ -17,88 +17,58 @@ $(document).ready(function () { //change to JS
     document.querySelector("#addGif").addEventListener("click", function (event) {
         event.preventDefault();
         document.querySelector("#gifInput").innerHTML = "";
-        var giphy = $("#gifInput").val().trim();//switch to js
+        var giphy = $("#gifInput").val().trim();
         topics.push(giphy);
         makeButtons();
     });
     makeButtons();
     //GET GIPHY WITH API===========================================================================================================
     function getGiphy() {
-        var sciFi = $(this).attr("data-name");//Change to JS
+        var sciFi = this.dataset.name;
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + sciFi + "&api_key=cYiJj1CIt08YVAtJrYaKhUYxYUzVn35K" + "&limit=10";
-        $.ajax({//change to JS fetch method? or xhr?
+        $.ajax({
             url: queryURL,
             method: "GET"
         }).done(function (response) {
-            console.log(response);
             document.querySelector("#display").innerHTML = "";
             for (var i = 0; i < response.data.length; i++) {
                 var imageDiv = document.createElement("div");
-                imageDiv.setAttribute("class", "individualGif");
+                imageDiv.classList.add("individualGif", "mr-2", "float-left");
                 var topicImage = document.createElement("img");
-                topicImage.setAttribute("class", "gif");
-                //Set both still and animated to same variable?
-               // var imageURL = ("data-still", response.data[i].images.fixed_height_still.url);
+                topicImage.classList.add("gif", "mt-2");
                 topicImage.src = response.data[i].images.fixed_height_still.url;
                 topicImage.setAttribute("data-still", response.data[i].images.fixed_height_still.url);
                 topicImage.setAttribute("data-animate", response.data[i].images.fixed_height.url);
-
-
-               //var imageURLAnimate = ("data-animate", response.data[i].images.fixed_height.url); //append attribute data-state=animate?
                 var ratingsID = document.createElement("p");
                 var ratings = response.data[i].rating.toUpperCase();
+                ratingsID.classList.add("mb-2");
                 ratingsID.innerHTML = ("RATING: " + ratings);
                 imageDiv.appendChild(topicImage);
                 imageDiv.appendChild(ratingsID);
                 document.querySelector("#display").prepend(imageDiv);
-             
             };
-            //change to js
+            //ANIMATE/STILL=========================================================================================        
             $(".gif").on("click", function (event) {
-                console.log(this);
-                if ($(this).attr("src") === $(this).attr("data-still")){
-                    
-                    // $(this).src() = $(this).attr("data-animate")
-                    $(this).attr("src", $(this).attr("data-animate"));
+                if (this.src === this.dataset.still) {
+                    this.src = this.dataset.animate;
                 }
                 else {
-                    $(this).attr("src", $(this).attr("data-still"));
+                    this.src = this.dataset.still;
                 }
-
-                //var state = this.dataset.state;
-
-                // var  state = $(this).attr("data-state");
-                
-                // console.log(event);
-                // //use getattribute??
-                // //assign to a specific gif with id?
-                // if (state === "still") {
-                //     topicImage.src = imageURLAnimate;
-                //     topicImage.setAttribute("data-state", "animate");
-                // }
-                // else {
-                //     topicImage.src = imageURL;
-                //     topicImage.setAttribute("data-state", "still")
-                // }
-
-                // console.log(state);
-            
             });
         });
     };
     //ADD ON CLICK FUNCTION=================================================================================
-    // document.addEventListener("click", ".giphy", getGiphy);
     $(document).on("click", ".giphy", getGiphy);
-    $("#play").on("click", function(){
+    //AUDIO PLAY/PAUSE======================================================================================
+    document.querySelector("#play").addEventListener("click", function () {
         audio.play();
     });
-
-    $("#pause").on("click", function(){
+    document.querySelector("#pause").addEventListener("click", function () {
         audio.pause();
     });
-
-
-
-
-
+    //CLEAR INPUT=========================================================================================
+    document.querySelector("#clearGif").addEventListener("click", function () {
+        document.querySelector("#display").innerHTML = "";
+    });
 });
