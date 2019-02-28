@@ -2,7 +2,7 @@
 A Star Trek: The Next Generation themed giphy assignment that pulls gifs using the giphy api.
 
 ## Site
-https://amandat85.github.io/Giftastic
+https://amandat85.github.io/GifTastic/
 
 ## Languages and Tools Used
 * HTML
