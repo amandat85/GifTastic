@@ -1,18 +1,18 @@
 # GifTastic
-A Star Trek: The Next Generation themed giphy assignment that pulls gifs using the giphy api.
+A Star Trek: The Next Generation themed giphy assignment that pulls gifs using the giphy api. Includes audio.
 
 ## Site
 https://amandat85.github.io/GifTastic/
 
 ## Languages and Tools Used
-* HTML
-* Bootstrap
+* HTML 5 
+* CSS 3
+* Bootstrap 4
 * Javascript
 * jQuery
-* CSS
-* Custom Fonts
 * Ajax
 * API
+* Custom Fonts
 
 ## How it works
 * Click on a button to generated 10 giphy images about your favourite Star Trek: The Next Generation character.
