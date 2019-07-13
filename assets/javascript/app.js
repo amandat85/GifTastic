@@ -25,7 +25,7 @@ $(document).ready(function () {
     //GET GIPHY WITH API===========================================================================================================
     function getGiphy() {
         var sciFi = this.dataset.name;
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + sciFi + "&api_key=cYiJj1CIt08YVAtJrYaKhUYxYUzVn35K" + "&limit=10";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + sciFi + "&api_key=vm660ZFmWYyRPf3HYm3NY9HIqQiwRPd9" + "&limit=10";
         $.ajax({
             url: queryURL,
             method: "GET"
