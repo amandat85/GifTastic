@@ -4,6 +4,9 @@ A Star Trek: The Next Generation themed giphy assignment that pulls gifs using t
 ## Site
 https://amandatome.github.io/GifTastic/
 
+## Homework Details
+[Homework Details](homework.md)
+
 ## Languages and Tools Used
 * HTML 5 
 * CSS 3
